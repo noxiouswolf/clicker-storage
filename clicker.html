@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <html>
+      <head>
+        <title>The Clicker of Buttons: Resurgence</title>
+        <script>
+          var clickCount;
+          var incr;
+          clickCount = 0;
+          var dbCount;
+          var dbCost;
+          dbCount = 0;
+          dbCost = 50;
+          incr = dbCount + 1;
+
+          function Test() {
+            clickCount = clickCount + incr;
+            document.getElementById("clickNo").innerHTML = "Click Count: " + clickCount;
+          }
+          
+          function buyDb(){
+            if(clickCount >= dbCost){
+              clickCount -= dbCost;
+              dbCount += 1;
+              incr += 1;
+              dbCost = (50 + (0.5 * (50 * dbCount)));
+              document.getElementById("clickNo").innerHTML = "Click Count: " + clickCount;
+            }
+            else{
+              window.alert("Not enough clicks to buy this upgrade!")
+            }
+            document.getElementById("dbCostStr").innerHTML = "Cost of Double: " + dbCost;
+            }
+          
+          function donate(){
+            clickCount = 0;
+            window.alert("Clicks 4 da homeless appreciated your kind donation. What a shame that's not a real charity, and that your clicks are meaningless to everyone but yourself. But you'll still keep clicking, won't you? Because you're blind.")
+            document.getElementById("clickNo").innerHTML = "Click Count: " + clickCount;
+          }
+        </script>
+      </head>
+      <body>
+        <center>
+        <h1>The Clicker of Buttons</h1>
+        <button onclick= Test()>Click Me!</button>
+        <p id = "clickNo"></p>
+        <break></break>
+        <button onclick= buyDb()>Buy Double</button>
+        <p id = "dbCostStr"></p>
+        <button onclick= donate()>Donate your clicks to charity!</button>
+        </center>
+      </body>
+    </html>
